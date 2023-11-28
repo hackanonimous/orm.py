@@ -54,35 +54,3 @@ class SQLiteORM:
 
     def close(self):
         self.conn.close()
-
-# Uso de la ORM
-# if __name__ == "__main__":
-#     db = SQLiteORM('mi_base_de_datos.db')
-
-#     # Definición de la tabla en formato JSON
-#     table_definition = {
-#         "personas": {
-#             "nombre": "TEXT",
-#             "edad": "INTEGER"
-#         }
-#     }
-
-#     # Crear la tabla utilizando la definición en formato JSON
-#     db.create_table(table_definition)
-
-#     # Insertar un registro
-#     data = {"nombre": "Juan", "edad": 30}
-#     db.insert("personas", data)
-
-#     # # Actualizar un registro
-#     data = {"nombre": "Maria", "edad": 25}
-#     db.update("personas", data, "id = 1")
-
-#     # # Eliminar un registro
-#     db.delete("personas", "id = 1")
-
-#     # Realizar una consulta SELECT
-#     resultados = db.select("personas")
-#     print(json.dumps(resultados, indent=4))
-
-#     db.close()
