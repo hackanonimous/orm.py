@@ -14,12 +14,21 @@ class SQLiteORM:
             self.cursor.execute(query)
         self.conn.commit()
 
-    def insertar(self, table_name, data):
+    def insertarUno(self, table_name, data):
         # Inserta un nuevo registro en la tabla
         columns = ', '.join(data.keys())
         values = ', '.join([f":{key}" for key in data.keys()])
         query = f"INSERT INTO {table_name} ({columns}) VALUES ({values})"
         self.cursor.execute(query, data)
+        self.conn.commit()
+
+    def insertarVarios(self, table_name, data):
+        # Inserta un nuevo registro en la tabla desde una array de objetos
+        for d in data:
+            columns = ', '.join(d.keys())
+            values = ', '.join([f":{key}" for key in d.keys()])
+        query = f"INSERT INTO {table_name} ({columns}) VALUES ({values})"
+        self.cursor.executemany(query, data)
         self.conn.commit()
 
     def actualizar(self, table_name, data, where):
@@ -49,8 +58,8 @@ class SQLiteORM:
         for row in rows:
             result_dict = dict(zip(columns, row))
             results.append(result_dict)
-
-        return results
+        formateo_json=json.dumps(results, indent=4)
+        return formateo_json
 
     def cerrar(self):
         self.conn.close()
