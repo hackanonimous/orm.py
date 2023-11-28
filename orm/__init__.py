@@ -14,7 +14,7 @@ class SQLiteORM:
             self.cursor.execute(query)
         self.conn.commit()
 
-    def insertararUno(self, table_name, data):
+    def insertarUno(self, table_name, data):
         # Inserta un nuevo registro en la tabla
         columns = ', '.join(data.keys())
         values = ', '.join([f":{key}" for key in data.keys()])

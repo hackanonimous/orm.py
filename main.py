@@ -6,7 +6,7 @@ db=orm.SQLiteORM("mi_data_bases")
 db.crear_tabla(Al.Alumnos)
 db.crear_tabla(Cu.Cursos)
 
-# data={"nombre":"amtonio","edad":15}
-# db.insertarUno("Alumnos",data)
+data={"nombre":"amtonio","edad":15}
+db.insertarUno("Alumnos",data)
 resultado=db.mostrar("Alumnos")
 print(resultado)
