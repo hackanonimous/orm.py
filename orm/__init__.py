@@ -44,7 +44,7 @@ class SQLiteORM:
         self.cursor.execute(query)
         self.conn.commit()
 
-    def mostrar(self, table_name, where=None):
+    def mostrar(self, table_name, where=None, type="objeto"):
         # Realiza una consulta SELECT
         query = f"SELECT * FROM {table_name}"
         if where:
@@ -52,14 +52,16 @@ class SQLiteORM:
 
         self.cursor.execute(query)
         rows = self.cursor.fetchall()
-        columns = [desc[0] for desc in self.cursor.description]
+        if type == "objeto":
+            columns = [desc[0] for desc in self.cursor.description]
 
-        results = []
-        for row in rows:
-            result_dict = dict(zip(columns, row))
-            results.append(result_dict)
-        formateo_json=json.dumps(results, indent=4)
-        return formateo_json
-
+            results = []
+            for row in rows:
+                result_dict = dict(zip(columns, row))
+                results.append(result_dict)
+            formateo_json=json.dumps(results, indent=4)
+            return formateo_json
+        else:
+            return rows
     def cerrar(self):
         self.conn.close()
