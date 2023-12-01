@@ -44,7 +44,7 @@ class SQLiteORM:
         self.cursor.execute(query)
         self.conn.commit()
 
-    def mostrar(self, table_name, where=None, type="objeto"):
+    def mostrar(self, table_name, where=None, type=None):
         # Realiza una consulta SELECT
         query = f"SELECT * FROM {table_name}"
         if where:
