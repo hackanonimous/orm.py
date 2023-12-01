@@ -21,8 +21,17 @@ Su linea de aprendizaje es baja y sus metodos para el manejo de CRUD en SQLite e
 ### 1. Descarga y Uso del ORM [Indice](#indice)
 - Para la descarga clonaremos el repositorio de la sigueinte manera
 ```bash
+#GITHUB
 git clone https://github.com/hackanonimous/orm.py.git
-``` 
+```
+```bash
+#GITLAB
+git clone https://gitlab.com/esi.segurity/orm-py.git
+```
+```bash
+#GITBUCKET
+git clone https://jalvarez_dev@bitbucket.org/jalvarez-dev/orm.py.git
+```
 - luego copiaremos la carpeta `orm` ala carpeta del proyecto donde haremos uso de sus metodos.
 
 ### 2. Creacion de una Base de Datos [Indice](#indice)
